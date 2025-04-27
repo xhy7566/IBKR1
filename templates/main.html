@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票自动交易监控系统</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>股票自动交易监控系统</h1>
+
+        <!-- 实时时间显示 -->
+        <div class="time-info">
+            <p>当前美国东部时间：<span id="usTime">{{ us_time }}</span></p>
+            <p>下一个交易日常规交易时间：{{ market_open }} - {{ market_close }}</p>
+        </div>
+
+        <!-- 添加任务表单 -->
+        <div class="section">
+            <h2>添加监控任务</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label>股票代码（如 AAPL）：</label>
+                    <input type="text" id="symbol" required>
+                    <button type="button" onclick="queryPrice()">查询</button>
+                    <span id="price-display"></span>
+                </div>
+                <div class="form-group">
+                    <label>触发价格：</label>
+                    <input type="number" id="triggerPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>操作类型：</label>
+                    <select id="action">
+                        <option value="BUY">买入</option>
+                        <option value="SELL">卖出</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>监控时间段：</label>
+                    <input type="datetime-local" id="startTime" required>
+                    <input type="datetime-local" id="endTime" required>
+                </div>
+                <div class="form-group">
+                    <label>交易数量：</label>
+                    <input type="number" id="quantity" value="1" required>
+                </div>
+                <button type="button" onclick="addTask()">添加任务</button>
+            </form>
+        </div>
+
+        <!-- 任务列表 -->
+        <div class="section" id="taskListSection">
+            <h2>当前监控任务</h2>
+            <div id="taskList"></div>
+        </div>
+    </div>
+    <script src="/static/main.js"></script>
+</body>
+</html>
