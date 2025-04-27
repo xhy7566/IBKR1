@@ -1,11 +1,11 @@
 # monitor.py
+from shared_tasks import monitor_tasks  # 确保 monitor_tasks 在 shared_tasks.py 中定义
+from common_utils import connect_ib, get_price
+from ibkr_trader import IBKRTrader
 import logging
 import asyncio
 import pytz
 from datetime import datetime
-from shared_tasks import monitor_tasks
-from common_utils import connect_ib, get_price
-from ibkr_trader import IBKRTrader
 
 # 配置日志
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
