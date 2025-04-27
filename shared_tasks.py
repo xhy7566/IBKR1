@@ -1,5 +1,7 @@
+# shared_tasks.py
 import time
 import logging
+monitor_tasks = []  # 定义一个空列表用于存储监控任务
 
 logger = logging.getLogger(__name__)
 
