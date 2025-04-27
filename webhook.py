@@ -1,9 +1,8 @@
+# webhook.py
 import logging
 from flask import Flask, render_template
 import asyncio
-
-from app import monitor_prices
-
+from monitor import monitor_prices  # 修复：从 monitor.py 而非 app.py 导入
 
 logging.basicConfig(level=logging.DEBUG)
 
