@@ -2,6 +2,8 @@ import time
 import logging
 
 logger = logging.getLogger(__name__)
+# 定义 monitor_tasks
+monitor_tasks = []  # 修复：添加 monitor_tasks 的定义
 
 def monitor_orders(ib, interval=30):
     """
